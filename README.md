@@ -82,14 +82,14 @@ Medical History: 'Mild hypertension, family history of migraines'
 
 The crew will then run sequentially, with each agent's output being passed as context to the next, ultimately printing a final, comprehensive report to the console.
 
-Configuration
+**Configuration**
 This project is highly configurable without changing the Python code:
 
-Agents: You can modify the roles, goals, and backstories of the agents by editing agents.yaml.
+**Agents:** You can modify the roles, goals, and backstories of the agents by editing agents.yaml.
 
-Tasks: The descriptions, expected outputs, and dependencies of each task can be adjusted in tasks.yaml.
+**Tasks:** The descriptions, expected outputs, and dependencies of each task can be adjusted in tasks.yaml.
 
-Tools: Custom tools are defined in tools/custom_tools.py. The current tools are mock implementations, but they can be expanded to connect to real medical APIs or databases.
+**Tools:** Custom tools are defined in tools/custom_tools.py. The current tools are mock implementations, but they can be expanded to connect to real medical APIs or databases.
 
-License
+**License**
 This project is licensed under the MIT License. See the LICENSE file for details.
