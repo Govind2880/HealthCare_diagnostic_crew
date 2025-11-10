@@ -1,0 +1,76 @@
+symptom_analysis_task:
+  description: |
+    Conduct a comprehensive analysis of the patient's symptoms:
+    - Evaluate symptom severity, duration, and patterns
+    - Identify potential underlying conditions
+    - Consider risk factors and medical history
+    - Flag any urgent concerns
+
+    Patient Information: {patient_info}
+    Symptoms: {symptoms}
+    Medical History: {medical_history}
+  expected_output: |
+    Detailed symptom analysis report including:
+    1. Symptom assessment and severity rating
+    2. List of potential conditions (prioritized)
+    3. Risk factors identified
+    4. Urgency level assessment
+  agent: symptom_analyzer
+
+diagnostic_refinement_task:
+  description: |
+    Refine the diagnostic possibilities and recommend appropriate testing:
+    - Review symptom analysis
+    - Narrow down differential diagnoses
+    - Recommend specific diagnostic tests
+    - Consider cost-effective and evidence-based approaches
+
+    Previous Analysis: {symptom_analysis}
+    Patient Information: {patient_info}
+  expected_output: |
+    Diagnostic refinement report including:
+    1. Refined differential diagnosis (top 3-5 possibilities)
+    2. Recommended diagnostic tests with rationale
+    3. Test prioritization
+    4. Cost-effectiveness considerations
+  agent: diagnostic_specialist
+  dependencies: [symptom_analysis_task]
+
+treatment_recommendation_task:
+  description: |
+    Develop evidence-based treatment recommendations:
+    - Review diagnoses and test recommendations
+    - Suggest appropriate treatments
+    - Include lifestyle modifications
+    - Consider patient preferences and constraints
+
+    Diagnostic Assessment: {diagnostic_assessment}
+    Patient Information: {patient_info}
+  expected_output: |
+    Comprehensive treatment plan including:
+    1. Primary treatment recommendations
+    2. Alternative options
+    3. Lifestyle and preventive measures
+    4. Medication considerations (if applicable)
+  agent: treatment_advisor
+  dependencies: [diagnostic_refinement_task]
+
+care_coordination_task:
+  description: |
+    Create a comprehensive care coordination plan:
+    - Integrate all previous assessments
+    - Develop follow-up schedule
+    - Provide clear patient instructions
+    - Include warning signs for emergency care
+
+    Treatment Plan: {treatment_plan}
+    Diagnostic Information: {diagnostic_assessment}
+    Patient Information: {patient_info}
+  expected_output: |
+    Complete care coordination plan including:
+    1. Step-by-step care instructions
+    2. Follow-up timeline
+    3. Emergency warning signs
+    4. Resource recommendations
+  agent: care_coordinator
+  dependencies: [treatment_recommendation_task]
