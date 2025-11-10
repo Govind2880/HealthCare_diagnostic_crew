@@ -78,7 +78,7 @@ Patient Info: '45-year-old male, non-smoker, occasional alcohol'
 Symptoms: 'Persistent headache for 3 days, blurred vision, nausea'
 
 Medical History: 'Mild hypertension, family history of migraines'
-'''
+```
 
 The crew will then run sequentially, with each agent's output being passed as context to the next, ultimately printing a final, comprehensive report to the console.
 
