@@ -77,7 +77,7 @@ class HealthcareDiagnosticCrew:
         tasks = []
         
         # Symptom Analysis Task
-        symptom_task = Task(
+        symptom_task = Task(name="Symptom Analysis Task",
             description=self.tasks_config['symptom_analysis_task']['description'].format(
                 patient_info=patient_data['patient_info'],
                 symptoms=patient_data['symptoms'],
@@ -90,7 +90,7 @@ class HealthcareDiagnosticCrew:
         tasks.append(symptom_task)
         
         # Diagnostic Refinement Task
-        diagnostic_task = Task(
+        diagnostic_task = Task(name="Diagnostic Refinement Task",
             description=self.tasks_config['diagnostic_refinement_task']['description'].format(
                 patient_info=patient_data['patient_info'],
                 symptom_analysis="{symptom_analysis}"
@@ -103,7 +103,7 @@ class HealthcareDiagnosticCrew:
         tasks.append(diagnostic_task)
         
         # Treatment Recommendation Task
-        treatment_task = Task(
+        treatment_task = Task(name="Treatment Recommendation Task",
             description=self.tasks_config['treatment_recommendation_task']['description'].format(
                 patient_info=patient_data['patient_info'],
                 diagnostic_assessment="{diagnostic_assessment}"
@@ -116,7 +116,7 @@ class HealthcareDiagnosticCrew:
         tasks.append(treatment_task)
         
         # Care Coordination Task
-        care_task = Task(
+        care_task = Task(name="Care Coordination Task",
             description=self.tasks_config['care_coordination_task']['description'].format(
                 patient_info=patient_data['patient_info'],
                 treatment_plan="{treatment_plan}",
